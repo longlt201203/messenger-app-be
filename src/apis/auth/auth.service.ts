@@ -41,7 +41,7 @@ export class AuthService {
     }
 
     verifyAccessToken(token: string) {
-        let user: User | null = null;
+        let user: User | undefined = undefined;
         try {
             const userId = this.verifyJwt(token);
             user = this.userRepo.findById(userId);

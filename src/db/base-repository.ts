@@ -3,6 +3,7 @@ import Db from "./db";
 export interface IBaseRepository<T> {
     insert(...data: T[]): void;
     findAllNoFilter(): T[];
+    countAllNoFilter(): number;
 }
 
 export class BaseRepository<T> implements IBaseRepository<T> {
@@ -22,5 +23,9 @@ export class BaseRepository<T> implements IBaseRepository<T> {
 
     findAllNoFilter() {
         return this.data;
+    }
+
+    countAllNoFilter() {
+        return this.data.length;
     }
 }
